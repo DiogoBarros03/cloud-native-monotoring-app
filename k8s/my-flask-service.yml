@@ -1,13 +1,12 @@
-apiVersion: apps/v1
+apiVersion: v1
 kind: Service
 metadata:
   name: my-flask-app
-  namespace: default
 spec:
   selector:
-    name: my-flask-app
+    app: my-flask-app
   ports:
-    protocol: TCP
+  - protocol: TCP
     port: 5001
     targetPort: 5001
   type: ClusterIP

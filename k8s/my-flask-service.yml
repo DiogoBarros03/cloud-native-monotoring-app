@@ -5,7 +5,7 @@ metadata:
   namespace: default
 spec:
   selector:
-    name: my-flask-app
+    app: my-flask-app
   ports:
   - protocol: TCP
     port: 5001

@@ -10,7 +10,7 @@ spec:
   template:
     metadata:
       labels:
-        name: my-flask-app
+        app: my-flask-app
     spec:
       containers:
       - name: my-flask-container

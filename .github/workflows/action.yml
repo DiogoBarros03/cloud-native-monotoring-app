@@ -1,0 +1,30 @@
+name: Build and Push Docker Image to ECR
+
+on:
+  pull_request:
+    branches:
+      - master 
+
+jobs:
+  build:
+    environment: production
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Log in to Amazon ECR
+        id: login-ecr
+        uses: aws-actions/amazon-ecr-login@v1
+
+      - name: Build and Tag Docker Image
+        run: |
+          docker build -t my-cloud-native-app .
+          docker tag my-cloud-native-app:latest 050451375189.dkr.ecr.eu-west-1.amazonaws.com/my-cloud-native-app:latest
+
+      - name: Push Docker Image to ECR
+        run: |
+          docker push 050451375189.dkr.ecr.eu-west-1.amazonaws.com/my-cloud-native-app:latest
+
+  

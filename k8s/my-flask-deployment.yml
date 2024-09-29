@@ -13,8 +13,8 @@ spec:
         name: my-flask-app
     spec:
       containers:
-        name: my-flask-container
+      - name: my-flask-container
         image: 050451375189.dkr.ecr.eu-west-1.amazonaws.com/my-cloud-native-app:latest
         ports:
-          containerPort: 5001
+        - containerPort: 5001
   

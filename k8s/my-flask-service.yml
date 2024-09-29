@@ -7,7 +7,7 @@ spec:
   selector:
     name: my-flask-app
   ports:
-    protocol: TCP
+  - protocol: TCP
     port: 5001
     targetPort: 5001
   type: ClusterIP
